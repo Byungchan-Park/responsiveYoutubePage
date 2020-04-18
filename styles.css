@@ -1,0 +1,313 @@
+body,
+ul,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+body {
+  max-width: 100%;
+  height: auto;
+}
+
+/* header */
+header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.backBtn {
+  position: absolute;
+  top: 12px;
+  padding: 7px 10px;
+}
+
+header .search {
+  position: relative;
+  left: 37px;
+  width: 60vw;
+  height: 35px;
+}
+
+header .search input {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+header .logo i {
+  color: red;
+}
+
+header .icons i:first-child {
+  margin-right: 0.5rem;
+}
+
+/* video-player */
+section.player {
+  background-color: black;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+}
+
+section.player .youtube-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Video info */
+section.infoAndUpNext {
+  padding: 1rem;
+}
+
+.metadata .hashtags {
+  width: 230px;
+  display: flex;
+  color: blue;
+  font-size: 0.8rem;
+  justify-content: space-between;
+}
+
+.titleAndButton {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.titleAndButton .video__title {
+  font-weight: 600;
+}
+
+/* Video title 말줄임 처리 */
+@media (max-width: 660px) {
+  .titleAndButton .thumbnail {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  /* showTitle 버튼 회전 */
+  .titleAndButton .moreBtn {
+    transition: transform 0.5s;
+  }
+
+  .titleAndButton .rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.titleAndButton .moreBtn {
+  align-self: flex-start;
+}
+
+.views {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Action buttons */
+.actions {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 725px;
+}
+
+.actions li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.actions li button {
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+/* Channel description */
+.channel {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.channel .metadata {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.metadata img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.metadata .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info .subscribers {
+  opacity: 0.7;
+}
+
+.subscribe {
+  padding: 0.5em 2.5em;
+  border: none;
+  background: #cc0000;
+  color: white;
+}
+
+/* 구독 버튼 눌렀을 때 */
+.complete {
+  padding: 0.5rem 1rem 0.5rem 1.8rem;
+  border: none;
+  background: gray;
+  color: white;
+  position: relative;
+  left: -50px;
+}
+
+.complete::after {
+  content: "🔔";
+  position: relative;
+  left: 65px;
+}
+
+/* UpNext */
+.upNext {
+  margin-top: 1rem;
+}
+
+.upNext__title {
+  display: block;
+  margin: 1rem 0;
+  opacity: 0.6;
+}
+
+.upNext ul .item {
+  display: flex;
+}
+
+.item img {
+  width: 155px;
+  height: 90px;
+}
+
+.imgInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  margin: 0 0.8rem;
+}
+
+.imgInfo .name {
+  margin-top: 0.2rem;
+}
+.imgInfo .name,
+.imgInfo .views {
+  opacity: 0.7;
+  font-size: 0.6rem;
+}
+
+.moreBtn {
+  align-self: flex-start;
+  padding: 0 0.5rem;
+  border: none;
+}
+
+@media (min-width: 850px) {
+  section.infoAndUpNext {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  section.upNext {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+  .upNext__title {
+    margin-top: 0;
+  }
+}
+
+/* 구독중 버튼 눌렀을 때 모달 창 */
+.modal__content button {
+  all: unset;
+  background-color: gray;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  cusor: pointer;
+}
+.modal {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.modal__content {
+  background-color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  width: 40%;
+}
+.modal__content h1 {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.hidden {
+  display: none;
+}
